@@ -56,5 +56,43 @@ public class BankAccount{
         }
     }
 
+    public void transfer(BankAccount receiver, double money){
+        if(money <= 0){
+            System.out.println("Invalid input: The amount must be greater than 0!");
+            return;
+        }
+
+        double fee = money * TRANSFER_RATE;
+        double totalTransfer = fee + money;
+
+        if(this.balance - totalTransfer < MINIMUM_BALANCE){
+            System.out.println("Insufficient funds to cover amount and 2% fee!");
+        } else{
+            this.balance -= totalTransfer;
+            receiver.deposit(money);
+            System.out.println("----TRANSACTION RECEIPT----");
+            System.out.println("Sender: " + this.ownerName);
+            System.out.println("Receiver: " + receiver.getOwner());
+            System.out.println("Transfer amount: " + money);
+            System.out.println("Transfer fee (2%): " + fee);
+            System.out.println("Total deduction: " + totalTransfer);
+            System.out.println("---------------------------");
+        }
+    }
+
+    public void payBill(String billName, double money){
+        if(money <= 0){
+            System.out.println("Invalid input: The amount must be greater than 0!");
+            return;
+        }
+
+        if(this.balance - money < MINIMUM_BALANCE){
+            System.out.println("Insufficient funds to cover the bill!");
+            return;
+        }
+
+        this.balance -= money;
+        System.out.println("Successfully paid " + billName + " bill: " + money);
+    }
 
 }
