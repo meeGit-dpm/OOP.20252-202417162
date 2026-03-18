@@ -34,7 +34,7 @@ public class BankAccount{
         return this.balance;
     }
 
-    public void deposit(int money){
+    public void deposit(double money){
         if(money > 0){
             this.balance += money;
             System.out.println("Depositing successfully!");
@@ -43,7 +43,7 @@ public class BankAccount{
         }
     }
 
-    public void withdraw(int money){
+    public void withdraw(double money){
         if(money > 0){
             if(this.balance - money >= MINIMUM_BALANCE){
                 this.balance -= money;
