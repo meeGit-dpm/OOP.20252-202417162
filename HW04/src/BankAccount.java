@@ -34,5 +34,27 @@ public class BankAccount{
         return this.balance;
     }
 
+    public void deposit(int money){
+        if(money > 0){
+            this.balance += money;
+            System.out.println("Depositing successfully!");
+        } else{
+            System.out.println("Invalid input: The amount must be greater than 0!");
+        }
+    }
+
+    public void withdraw(int money){
+        if(money > 0){
+            if(this.balance - money >= MINIMUM_BALANCE){
+                this.balance -= money;
+                System.out.println("Withdrawing successfully!");
+            } else{
+                System.out.println("The remaining money must be greater than " + MINIMUM_BALANCE);
+            } 
+        } else {
+            System.out.println("Invalid input: The amount must be greater than 0!");
+        }
+    }
+
 
 }
