@@ -34,6 +34,9 @@ public class Main{
         System.out.println("--TEST PAY BILL--");
         acc1.payBill("Electric", 2000);
 
+        //6. Display balance of each account
+        System.out.println("The balance of " + acc1.getOwner() + " - id: " + acc1.getAccNum() + " is: " + acc1.getBalance());
+        System.out.println("The balance of " + acc2.getOwner() + " - id: " + acc2.getAccNum() + " is: " + acc2.getBalance());
 
 
     }

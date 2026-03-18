@@ -6,8 +6,8 @@ public class BankAccount{
     private static double TRANSFER_RATE = 0.2;
 
     public BankAccount(String name, String accNum, double initialBalance){
-        if(name.equals("")){
-            System.out.println("Error: Owner's name is invalid!");
+        if(name == null || name.trim().isEmpty()){
+            System.out.println("Error: You must enter the owner's name!");
             return;
         }
 
@@ -92,7 +92,7 @@ public class BankAccount{
         }
 
         this.balance -= money;
-        System.out.println("Successfully paid " + billName + " bill: " + money);
+        System.out.println(this.ownerName + " successfully paid " + billName + " bill: " + money);
     }
 
 }
